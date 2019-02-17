@@ -38,6 +38,8 @@ class AuthController extends Controller
 
         if(Hash::check($request->password, $user->password))
         {
+            $user->update(['api_token' => str_random(50)]);
+            
             return response()->json(['status' => 'success', 'user' => $user], 200);    
         }
 
@@ -60,5 +62,7 @@ class AuthController extends Controller
         $user->api_token = null;
 
         $user->save();
+
+        return response()->json(['status' => 'success', 'message' => 'Successfully logged out'], 200);
     }
 }

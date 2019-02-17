@@ -9,7 +9,7 @@ class BoardController extends Controller
 {
     public function __construct()
     {
-        
+        //$this->middleware('auth', ['only' => ['index', 'show']]);
     }
 
     public function index()

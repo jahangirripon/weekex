@@ -23,5 +23,10 @@ Route::get('/logout', 'AuthController@logout');
 Route::post('/register', 'AuthController@register');
 
 Route::get('/boards', 'BoardController@index');
+
+// Route::get('/boards', [
+//     'as' => 'login',
+//     'uses' => 'BoardController@index'
+// ]);
 Route::get('/boards/{board}', 'BoardController@show');
 Route::post('/boards', 'BoardController@store');
